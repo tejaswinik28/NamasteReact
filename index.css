@@ -6,11 +6,14 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 0;
     margin: 0;
+    background-color: #fdfdff;
 }
+
 
 
 .css-11b3ww9-MuiPaper-root-MuiAppBar-root {
     position: sticky !important;
+    background-color: orange !important;
 }
 
 .header {
@@ -19,7 +22,8 @@ body {
     background-color: #666;
     color: white;
     position: sticky !important;
-    top: 0
+    top: 0;
+    margin-bottom: 50px;
 }
 
 .restro-container {
@@ -28,8 +32,9 @@ body {
 }
 
 .logo {
-    height: 200px;
-    width: 200px;
+
+    width: 100px;
+    padding: 10px;
 }
 
 .nav-items {
@@ -58,7 +63,7 @@ body {
 }
 
 .res-card:hover {
-    border: 1px solid #666;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     cursor: pointer;
 }
 
@@ -97,4 +102,16 @@ body {
     color: rgba(2, 6, 12, 0.6);
     overflow: hidden;
     width: 100%;
+}
+
+.search-bar {
+    margin-bottom: 1.25rem;
+    border-radius: 1.25rem !important;
+
+}
+
+.header-navitems>a {
+    text-decoration: none;
+    color: black;
+    padding: 15px;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import logo from '../../logo.png';
+import logo from '../../logo2.png';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -16,14 +16,18 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Button from '@mui/material/Button';
 import Drawer from '@mui/material/Drawer';
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export const Header = (props) => {
 
     const drawerWidth = 240;
-    const navItems = ['Home', 'About', 'Contact'];
+    const [loginBtn, setLoginBtn] = React.useState('LOGIN');
+    const navItems = [{ name: 'HOME', toLink: '/', id: 1 }, { name: 'ABOUT', toLink: '/about', id: 2 }, { name: 'CONTACT', toLink: '/contact', id: 3 }, { name: 'CART', toLink: '/cart', id: 4 }, { name: 'LOGIN', id: 5 }];
 
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
+
 
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
@@ -37,9 +41,9 @@ export const Header = (props) => {
             <Divider />
             <List>
                 {navItems.map((item) => (
-                    <ListItem key={item} disablePadding>
+                    <ListItem key={item.id} disablePadding>
                         <ListItemButton sx={{ textAlign: 'center' }}>
-                            <ListItemText primary={item} />
+                            <ListItemText primary={item.name} />
                         </ListItemButton>
                     </ListItem>
                 ))}
@@ -85,16 +89,37 @@ export const Header = (props) => {
                     <Typography
                         variant="h6"
                         component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-                    >
-                        MUI
+                        sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }} >
+
+                        <Container maxWidth="lg">
+                            <Toolbar>
+                                <img className="logo" src={logo}></img>
+                            </Toolbar>
+                        </Container>
+
                     </Typography>
-                    <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-                        {navItems.map((item) => (
-                            <Button key={item} sx={{ color: '#fff' }}>
-                                {item}
-                            </Button>
-                        ))}
+                    <Box sx={{ display: { xs: 'none', sm: 'block' } }} className="header-navitems">
+                        {navItems.map((item) => {
+
+                            if (item.name === 'LOGIN') {
+                                console.log(loginBtn);
+                                return (
+                                    <Button size="large" key={item.id} sx={{ color: '#000000' }} onClick={() => {
+                                        setLoginBtn("Logout");
+                                    }}>
+                                        <b>{loginBtn}</b>
+                                    </Button>
+                                )
+                            }
+                            else {
+                                return (
+                                    <Link size="large" to={item.toLink} sx={{ color: '#000000' }}>
+                                        <b>{item.name}</b>
+                                    </Link>)
+                            }
+
+
+                        })}
                     </Box>
                 </Toolbar>
             </AppBar>
