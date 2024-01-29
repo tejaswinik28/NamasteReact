@@ -1,0 +1,81 @@
+.menu {
+    width: 50%;
+    font-family: ProximaNova, arial, Helvetica Neue, sans-serif;
+}
+
+
+
+.resHeader_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.resNameAddress_wrapper {
+    width: 80%;
+}
+
+.resNameAddress_name {
+    font-size: 1.43rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: capitalize;
+    color: #282c3f;
+
+}
+
+.resNameAddress_cuisines,
+.resNameAddress_address {
+    font-size: .93rem;
+    color: #7e808c;
+    height: calc(.93rem + 2px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 4px;
+    white-space: nowrap;
+}
+
+.resRatingWrapper {
+    border: 1px solid #e9e9eb;
+    box-shadow: 0 1px 5px #f9f9f9;
+    border-radius: 6px;
+    text-align: center;
+    padding: 8px;
+    max-width: 100px;
+    float: right;
+}
+
+.resRatingWrapper_avgRating {
+    color: #3d9b6d;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e9e9eb;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: block;
+
+}
+
+.resRatingWrapper_avgRating_icon {
+    margin-right: 0.5rem;
+}
+
+.resRatingWrapper_totalRating {
+    font-size: 11px;
+    color: #8b8d97;
+    font-weight: 600;
+}
+
+.resMessage_Wrapper {
+    margin-bottom: 2%;
+    color: #7e808c;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    font-weight: 300;
+    font-size: 14px;
+    margin-top: 3%;
+}
+
+.resHeader_dottedSeparator {
+    border: none;
+    border-bottom: 1px dashed #d3d3d3;
+}

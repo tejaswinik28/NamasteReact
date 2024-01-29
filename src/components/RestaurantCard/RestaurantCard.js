@@ -1,13 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import logo from '../../logo.png';
+import logo from '../../../logo.png';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { Toolbar } from "@mui/material";
 import Typography from '@mui/material/Typography';
 //Named exports are imported with {}
-import { CDN_URL } from '../utils/constants';
+import { CDN_URL } from '../../utils/constants';
+import './restaurantCard.css';
 
 const ResturantCard = (props) => {
     const { resData } = props;

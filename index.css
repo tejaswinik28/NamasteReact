@@ -16,20 +16,7 @@ body {
     background-color: orange !important;
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    background-color: #666;
-    color: white;
-    position: sticky !important;
-    top: 0;
-    margin-bottom: 50px;
-}
 
-.restro-container {
-    display: flex;
-    flex-wrap: wrap;
-}
 
 .logo {
 
@@ -54,64 +41,9 @@ body {
 
 }
 
-.res-card {
-    width: 25%;
-
-
-    padding: 20px;
-
-}
-
-.res-card:hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    cursor: pointer;
-}
-
-.search {
-    padding: 10px;
-}
-
-.res-logo {
-    width: 100%;
-    border-radius: 20px;
-    height: 200px;
-
-}
-
 .res-shimmer {
     width: 100%;
     border-radius: 20px;
     height: 200px;
     background-color: #d3d3d3;
-}
-
-.res-card-title {
-    color: rgba(2, 6, 12, 0.75);
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 24px;
-    letter-spacing: -0.3px;
-    margin: 0px;
-}
-
-.res-card-description {
-    font-size: 16px;
-    font-weight: 200;
-    line-height: 19px;
-    letter-spacing: -0.3px;
-    color: rgba(2, 6, 12, 0.6);
-    overflow: hidden;
-    width: 100%;
-}
-
-.search-bar {
-    margin-bottom: 1.25rem;
-    border-radius: 1.25rem !important;
-
-}
-
-.header-navitems>a {
-    text-decoration: none;
-    color: black;
-    padding: 15px;
 }

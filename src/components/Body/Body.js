@@ -1,19 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import logo from '../../logo.png';
+import logo from '../../../logo.png';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { Toolbar } from "@mui/material";
 import Typography from '@mui/material/Typography';
-import ResturantCard from './RestaurantCard';
-import Shimmer from './Shimmer.js';
-import ResList from '../utils/mockData'
+import ResturantCard from '../RestaurantCard/RestaurantCard.js';
+import Shimmer from '../Shimmer.js';
+import ResList from '../../utils/mockData.js'
 import { useState, useEffect } from "react";
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
+import './body.css';
 
 
 const Body = () => {
@@ -21,7 +22,7 @@ const Body = () => {
     let [resList, setResList] = useState([]);
     let [searchList, setSearchList] = useState([]);
     let [searchText, setSearchText] = useState("");
-    let [collectionValue, setCollectionValue] = useState('');
+    let [collectionValue, setcollectionValue] = useState('');
 
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -96,7 +97,7 @@ const Body = () => {
             const content = await rawResponse.json();
 
             val = content?.data?.pageOffset?.widgetOffset?.collectionV5RestaurantListWidget_SimRestoRelevance_food_seo;
-            setCollectionValue(val);
+            setcollectionValue("90");
             console.log(collectionValue);
             console.log(content?.data?.pageOffset?.widgetOffset?.collectionV5RestaurantListWidget_SimRestoRelevance_food_seo);
             setSearchList(prevItems => [...prevItems, ...content?.data.cards[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants]);

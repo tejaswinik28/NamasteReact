@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import logo from '../../logo2.png';
+import logo from '../../../logo2.png';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -18,6 +18,7 @@ import Button from '@mui/material/Button';
 import Drawer from '@mui/material/Drawer';
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import "./header.css";
 
 export const Header = (props) => {
 

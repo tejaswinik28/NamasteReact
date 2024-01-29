@@ -10,7 +10,8 @@ const Error = () => {
         <Container maxWidth="lg" className="body">
             <div>
                 <h1>Error Page 👻</h1>
-                <h3>{err.status}</h3>
+                <h3>{err.status} : {err.statusText}</h3>
+
             </div>
         </Container>
     )

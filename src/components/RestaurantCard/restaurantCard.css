@@ -1,0 +1,37 @@
+.res-card {
+
+
+    width: 25%;
+    padding: 20px;
+}
+
+.res-card:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+}
+
+.res-logo {
+    width: 100%;
+    border-radius: 20px;
+    height: 200px;
+
+}
+
+.res-card-title {
+    color: rgba(2, 6, 12, 0.75);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -0.3px;
+    margin: 0px;
+}
+
+.res-card-description {
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 19px;
+    letter-spacing: -0.3px;
+    color: rgba(2, 6, 12, 0.6);
+    overflow: hidden;
+    width: 100%;
+}

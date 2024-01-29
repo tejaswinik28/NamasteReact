@@ -6,12 +6,13 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { Toolbar } from "@mui/material";
 import Typography from '@mui/material/Typography';
-import { Header } from './components/Header'
-import Body from './components/Body';
+import { Header } from './components/shared/Header'
+import Body from './components/Body/Body';
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import About from './components/About';
 import Contact from './components/Contact';
-import Error from './components/Error';
+import Error from './components/shared/Error';
+import RestaurantMenu from './components/RestaurantCard/RestaurantMenu';
 
 const drawerWidth = 240;
 const navItems = ['Home', 'About', 'Contact'];
@@ -33,7 +34,7 @@ const appRouter = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Body />
+                element: <Body />,
             },
             {
                 path: "/about",
@@ -43,10 +44,15 @@ const appRouter = createBrowserRouter([
             {
                 path: "contact",
                 element: <Contact />,
+            },
+            {
+                path: "/restaurants/:resId",
+                element: <RestaurantMenu />,
             }
         ],
         errorElement: <Error />
     },
+
 
 ]);
 
