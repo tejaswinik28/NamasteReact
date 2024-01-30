@@ -1,8 +1,12 @@
 .res-card {
 
 
-    width: 25%;
+    /* width: 25%; */
     padding: 20px;
+}
+
+a {
+    text-decoration: none;
 }
 
 .res-card:hover {
@@ -24,6 +28,7 @@
     line-height: 24px;
     letter-spacing: -0.3px;
     margin: 0px;
+    text-align: left;
 }
 
 .res-card-description {
@@ -34,4 +39,6 @@
     color: rgba(2, 6, 12, 0.6);
     overflow: hidden;
     width: 100%;
+    text-align: left;
+
 }

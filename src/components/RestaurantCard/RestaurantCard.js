@@ -21,7 +21,7 @@ const ResturantCard = (props) => {
 
             <img className="res-logo" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId}></img>
             <div className="res-card-title">{name}</div>
-            <div className="res-card-description">{cuisines}</div>
+            <div className="res-card-description">{cuisines.join(', ')}</div>
             <div className="res-card-description">{avgRating}</div>
             <div className="res-card-description">{costForTwo}</div>
 

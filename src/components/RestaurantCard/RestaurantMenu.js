@@ -7,23 +7,41 @@ import './restaurantMenu.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { faPersonBiking } from '@fortawesome/free-solid-svg-icons'
+import { useParams } from "react-router-dom";
+import { MENU_API_URL } from "../../utils/constants.js";
+import Switch from '@mui/material/Switch';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
+import RestaturantMenuList from "./restaurantMenuList.js";
 
 
 const RestaurantMenu = () => {
     //const { name, cuisines, areaName, locality } = undefined || {};
+    const { resId } = useParams();
+    const [checked, setChecked] = React.useState(true);
     const StartElement = <FontAwesomeIcon icon={faStar} size="xl" style={{ color: "#059907", }} />
     const CycleElement = <FontAwesomeIcon icon={faPersonBiking} style={{ color: "#9da0a4", }} />
     const [resInfo, setResInfo] = useState(null);
+    const [resMenu, setResMenu] = useState(null);
     useEffect(() => {
         fetchMenu();
-    }, []);
+    }, [checked]);
 
-
+    const handleChange = (event) => {
+        setChecked(event.target.checked);
+    };
 
     const fetchMenu = async () => {
-        const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9715987&lng=77.5945627&restaurantId=206339&catalog_qa=undefined&submitAction=ENTER");
+        const data = await fetch(MENU_API_URL + resId);
         const json = await data.json();
         setResInfo(json.data);
+        let resMenu = json.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards;
+        resMenu.shift();
+        setResMenu(resMenu);
+        console.log("Full data set", json.data.cards[2].groupedCard.cardGroupMap.REGULAR);
+        console.log('shift', resMenu);
         console.log(json.data.cards[0].card.card.info);
 
 
@@ -71,11 +89,65 @@ const RestaurantMenu = () => {
                     <hr className="resHeader_dottedSeparator"></hr>
                     <div className="resDeliveryDetails_wrapper">
 
+                        <FormControlLabel
+                            value="VegOnly"
+                            control={<Switch
+                                checked={checked}
+                                onChange={handleChange}
+                                inputProps={{ 'aria-label': 'controlled' }}
+                            />}
+                            label="Veg Only"
+                            labelPlacement="start"
+                        />
+
+                        <hr className="resHeader_dottedSeparator"></hr>
+
+
+
+                        {resMenu.map((item) => (
+
+                            <RestaturantMenuList resMenuList={item} vegOnly={checked}></RestaturantMenuList>
+                            // item.card.card['@type'] == 'type.googleapis.com/swiggy.presentation.food.v2.ItemCategory' ?
+                            //     <div>
+                            //         <h3>{item.card.card.title}</h3>
+
+                            //         {item.card.card.itemCards.map((menuItem) => (
+                            //             checked == true && menuItem.card.info.itemAttribute.vegClassifier == 'VEG' ?
+                            //                 <div>{menuItem.card.info.name}</div>
+                            //                 : checked == false ?
+                            //                     <div>{menuItem.card.info.name}</div>
+                            //                     :
+                            //                     <div></div>
+                            //         ))}
+
+                            //         <hr className="resHeader_dottedSeparator"></hr>
+                            //     </div>
+                            //     : (item.card.card['@type'] == 'type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory' ?
+                            //         <div>
+                            //             <h3>{item.card.card.title}</h3>
+
+                            //             {item.card.card.categories.map((menuItem) => (
+                            //                 menuItem.itemCards.map((dishes) => (
+                            //                     checked == true && dishes.card.info.itemAttribute.vegClassifier == 'VEG' ?
+                            //                         <div> {dishes.card.info.name} </div>
+                            //                         : checked == false ? <div> {dishes.card.info.name} </div>
+                            //                             :
+                            //                             <div></div>
+                            //                 ))
+
+                            //             ))}
+
+                            //             <hr className="resHeader_dottedSeparator"></hr>
+                            //         </div>
+                            //         :
+                            //         <div></div>)
+
+                        ))}
                     </div>
                 </div>
 
 
-            </Container>
+            </Container >
         )
 }
 

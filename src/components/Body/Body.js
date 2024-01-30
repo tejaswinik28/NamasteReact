@@ -15,6 +15,9 @@ import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import './body.css';
+import Grid from '@mui/material/Grid';
+import { Link } from "react-router-dom";
+import { styled } from '@mui/material/styles';
 
 
 const Body = () => {
@@ -28,6 +31,14 @@ const Body = () => {
     const [error, setError] = useState(null);
     const [page, setPage] = useState(1);
     let val = "10";
+
+    const Item = styled(Paper)(({ theme }) => ({
+        backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+        ...theme.typography.body2,
+        padding: theme.spacing(1),
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+    }));
 
     console.log("Body rendered");
 
@@ -147,11 +158,18 @@ const Body = () => {
             </div>}
 
 
-            <div className="restro-container">
+            {/* <div className="restro-container"> */}
+            <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                 {searchList.map((restaurant) => (
-                    <ResturantCard key={restaurant.info.id} resData={restaurant}></ResturantCard>
+                    <Grid item xs={2} sm={4} md={4} key={restaurant.info.id}>
+                        <Link to={"/restaurants/" + restaurant.info.id}  >
+                            <Item><ResturantCard resData={restaurant}></ResturantCard></Item>
+                        </Link>
+                    </Grid>
+
                 ))}
-            </div>
+            </Grid>
+            {/* </div> */}
         </Container >
 
 
