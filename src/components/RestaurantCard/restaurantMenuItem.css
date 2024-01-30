@@ -1,0 +1,40 @@
+.resMenuItem_imageDetail {
+    width: 100px;
+}
+
+.resMenuItem_image {
+    padding: 10px;
+}
+
+.resMenuItem_wrapper {
+    display: flex;
+    flex-flow: wrap;
+}
+
+.resMenuItemName_wrapper {
+    width: 80%;
+    margin-left: 2%;
+}
+
+.resMenuItem_title {
+    margin-right: 4px;
+    font-size: 1.22rem;
+    font-weight: 500;
+    color: #3e4152;
+    word-break: break-word;
+}
+
+.styles_divider__1BqVH {
+    border-bottom: 0.5px solid #d3d3d3;
+    height: 0.5px;
+    margin: 24px auto;
+    width: calc(100% - 32px);
+}
+
+.css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root {
+    position: unset !important;
+}
+
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root {
+    position: unset !important;
+}

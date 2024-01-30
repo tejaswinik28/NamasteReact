@@ -14,7 +14,8 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
-import RestaturantMenuList from "./restaurantMenuList.js";
+import RestaurantMenuList from "./restaurantMenuList.js";
+import RestaurantMenuDetail from "./RestaurantMenuDetail.js";
 
 
 const RestaurantMenu = () => {
@@ -58,6 +59,7 @@ const RestaurantMenu = () => {
         :
         (
             <Container maxWidth="lg" className="menu">
+
                 <div className="resHeader_Container">
                     <div className="resHeader_wrapper">
                         <div className="resNameAddress_wrapper">
@@ -100,47 +102,13 @@ const RestaurantMenu = () => {
                             labelPlacement="start"
                         />
 
-                        <hr className="resHeader_dottedSeparator"></hr>
+
 
 
 
                         {resMenu.map((item) => (
 
-                            <RestaturantMenuList resMenuList={item} vegOnly={checked}></RestaturantMenuList>
-                            // item.card.card['@type'] == 'type.googleapis.com/swiggy.presentation.food.v2.ItemCategory' ?
-                            //     <div>
-                            //         <h3>{item.card.card.title}</h3>
-
-                            //         {item.card.card.itemCards.map((menuItem) => (
-                            //             checked == true && menuItem.card.info.itemAttribute.vegClassifier == 'VEG' ?
-                            //                 <div>{menuItem.card.info.name}</div>
-                            //                 : checked == false ?
-                            //                     <div>{menuItem.card.info.name}</div>
-                            //                     :
-                            //                     <div></div>
-                            //         ))}
-
-                            //         <hr className="resHeader_dottedSeparator"></hr>
-                            //     </div>
-                            //     : (item.card.card['@type'] == 'type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory' ?
-                            //         <div>
-                            //             <h3>{item.card.card.title}</h3>
-
-                            //             {item.card.card.categories.map((menuItem) => (
-                            //                 menuItem.itemCards.map((dishes) => (
-                            //                     checked == true && dishes.card.info.itemAttribute.vegClassifier == 'VEG' ?
-                            //                         <div> {dishes.card.info.name} </div>
-                            //                         : checked == false ? <div> {dishes.card.info.name} </div>
-                            //                             :
-                            //                             <div></div>
-                            //                 ))
-
-                            //             ))}
-
-                            //             <hr className="resHeader_dottedSeparator"></hr>
-                            //         </div>
-                            //         :
-                            //         <div></div>)
+                            <RestaurantMenuDetail resMenuList={item} vegOnly={checked}></RestaurantMenuDetail>
 
                         ))}
                     </div>
